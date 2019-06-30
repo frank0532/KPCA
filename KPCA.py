@@ -35,7 +35,6 @@ class KPCA():
             eigvals, eigvecs = np.linalg.eigh(K_hat)
             arg_max = eigvals.argsort()[-2:]
             eigvecs_max = eigvecs[:,arg_max]
-
         X_new = np.dot(K, eigvecs_max)
         for i in range(2):
             tmp = y == i
@@ -46,4 +45,4 @@ class KPCA():
 if __name__ == '__main__':
     X, y = make_circles(n_samples=400, factor=.3, noise=.05, random_state=0)
     kpca = KPCA('rbf')
-    kpca.fit_transform_plot(X,y)
+    kpca.fit_transform_plot(X, y)
